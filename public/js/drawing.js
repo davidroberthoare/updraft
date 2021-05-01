@@ -59,6 +59,7 @@ canvas.on('mouse:down', function (opt) {
     else {   //regular non-alt left mouse-down
         if(opt.button === 1) {
             console.log("left click");
+            hidePopupMenu();    //hide any open popup menu
             switch (active_tool) {
                 case 'pointer':
 
@@ -118,6 +119,7 @@ canvas.on('mouse:down', function (opt) {
             console.log("obj:", obj);
             canvas.setActiveObject(obj);
             canvas.renderAll();
+            showPopupMenu(obj);
         }
     }
 

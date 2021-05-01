@@ -98,6 +98,7 @@ div#toast.active {
   top: 3.25rem;
   right: 0px;
   overflow: hidden;
+  z-index: 9;
 }
 #chat li{
   overflow: hidden;
@@ -218,6 +219,39 @@ div#toast.active {
 }
 
 
+/* popup toolbar */
+
+#popup_toolbar{
+  position: absolute;
+  top:50vh;
+  left: 50vw;
+  /* height: 50px; */
+  /* bottom: 20%; */
+  text-align:center;
+  border-radius: 5px;
+  border: 2px solid #585858;
+  box-shadow: 3px 3px 11px #0000004a;
+  background:white;
+  user-select: none;
+  display: none;
+}
+
+#popup_toolbar .tool{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  user-select: none
+}
+
+
+#popup_color_picker{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+/* UPLOAD AREA */
 #upload_area{
   position:absolute;
   bottom:10vh;

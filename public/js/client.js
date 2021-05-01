@@ -289,7 +289,21 @@ $("#toolbar .tool").on("click", function(){
 })
 
 
-// color-picker
+
+// ******** color-picker
+const color_presets = [
+  'e8ecfb',
+  'b997c7',
+  '824d99',
+  '4e78c4',
+  '57a2ac',
+  '7eb875',
+  'd0b541',
+  'e67f33',
+  'ce2220',
+  '521a13'
+];
+
 var active_color;
 
 function setColor(color){
@@ -329,18 +343,52 @@ picker.on('change', function(r, g, b, a) {
     setColor(col);
 });
 
-preDefineColorValues(picker, [
-  'e8ecfb',
-  'b997c7',
-  '824d99',
-  '4e78c4',
-  '57a2ac',
-  '7eb875',
-  'd0b541',
-  'e67f33',
-  'ce2220',
-  '521a13'
-]);
+preDefineColorValues(picker, color_presets);
+
+
+
+
+
+// ******** POPUP toolbar actions
+function showPopupMenu(obj){
+  $("#popup_toolbar").css("left", obj.left);
+  $("#popup_toolbar").css("top", obj.top);
+  $("#popup_toolbar").css("display", "flex");
+}
+function hidePopupMenu(){
+  $("#popup_toolbar").css("display", "none");
+}
+
+
+
+
+
+
+
+
+
+// ******** POPUP color-picker
+function setObjectColor(color){
+  // active_color = color;
+  $('#popup_color_picker').css("background-color", color);
+  // localStorage.active_color = active_color;
+}
+
+const popup_picker = new CP(document.querySelector('#popup_color_picker'));
+
+popup_picker.on('change', function(r, g, b, a) {
+  console.log("color change", r, g, b, a);
+    var col = '';
+    if (1 === a) {
+      col = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    } else {
+      col = 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+    }
+    
+    setObjectColor(col);
+});
+
+preDefineColorValues(popup_picker, color_presets);
 
 
 
