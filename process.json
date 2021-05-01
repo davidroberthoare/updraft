@@ -1,0 +1,12 @@
+{
+  "script": "src/index.js",
+  "watch": true,
+  "ignore_watch": [
+    "public/uploads",
+    "node_modules"
+  ],
+  "watch_options": {
+    "followSymlinks": false
+  },
+  "name": "UpDraft"
+}
