@@ -1,16 +1,17 @@
 {
-  "name": "feathers-2",
+  "name": "Updraft",
   "description": "test project",
   "version": "0.0.0",
   "homepage": "",
   "private": true,
   "main": "src",
   "keywords": [
-    "feathers"
+    "feathers",
+    "fabric"
   ],
   "author": {
-    "name": "",
-    "email": ""
+    "name": "David Hoare",
+    "email": "david@drhmedia.net"
   },
   "contributors": [],
   "bugs": {},
