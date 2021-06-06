@@ -351,8 +351,8 @@ preDefineColorValues(picker, color_presets);
 
 // ******** POPUP toolbar actions
 function showPopupMenu(obj){
-  $("#popup_toolbar").css("left", obj.left);
-  $("#popup_toolbar").css("top", obj.top);
+  $("#popup_toolbar").css("left", obj.aCoords.bl.x);
+  $("#popup_toolbar").css("top", obj.aCoords.bl.y + $("#drawing_container").offset().top + 10);
   $("#popup_toolbar").css("display", "flex");
 }
 function hidePopupMenu(){
@@ -371,6 +371,7 @@ function hidePopupMenu(){
 function setObjectColor(color){
   // active_color = color;
   $('#popup_color_picker').css("background-color", color);
+  updateActiveObjectStyle({fill: color});
   // localStorage.active_color = active_color;
 }
 
@@ -384,11 +385,46 @@ popup_picker.on('change', function(r, g, b, a) {
     } else {
       col = 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
     }
-    
     setObjectColor(col);
 });
 
+popup_picker.on('stop', function() {
+  console.log("color change STOP");
+  sendUpdatedItem(canvas._activeObject._id, canvas._activeObject)
+});
+
 preDefineColorValues(popup_picker, color_presets);
+
+
+
+
+// ******** POPUP color-picker-BORDER
+function setObjectColorBorder(color){
+  // active_color = color;
+  $('#popup_color_picker_border').css("border-color", color);
+  updateActiveObjectStyle({stroke: color});
+  // localStorage.active_color = active_color;
+}
+
+const popup_picker_border = new CP(document.querySelector('#popup_color_picker_border'));
+
+popup_picker_border.on('change', function(r, g, b, a) {
+  console.log("color change", r, g, b, a);
+    var col = '';
+    if (1 === a) {
+      col = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    } else {
+      col = 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+    }
+    setObjectColorBorder(col);
+});
+
+popup_picker_border.on('stop', function() {
+  console.log("color change STOP");
+  sendUpdatedItem(canvas._activeObject._id, canvas._activeObject)
+});
+
+preDefineColorValues(popup_picker_border, color_presets);
 
 
 

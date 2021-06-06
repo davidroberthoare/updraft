@@ -293,6 +293,10 @@ canvas.on('object:modified', function (ev) {
 });
 
 
+function updateActiveObjectStyle(params){
+    canvas._activeObject.set(params);
+    canvas.renderAll();
+}
 
 
 
@@ -323,7 +327,7 @@ function updateCanvasObject(item) {
     var obj = canvas.getItem(item._id);
     for (const [key, value] of Object.entries(item)) {
         console.log(key, value);
-        obj[key] = value;
+        obj.set({[key]: value});
     }
     canvas.requestRenderAll();
 }
