@@ -166,6 +166,7 @@ div#toast.active {
   /* background:rgb(93, 160, 247); */
 }
 
+/* MAIN TOOLBAR */
 
 #toolbar{
   position: absolute;
@@ -194,6 +195,10 @@ div#toast.active {
 
 #toolbar .tool.active {
   background-color: #cbc8ff;
+}
+
+.color_picker_btn{
+  border: thin solid #b9b9b9;
 }
 
 #color_picker{
@@ -233,6 +238,7 @@ div#toast.active {
   box-shadow: 3px 3px 11px #0000004a;
   background:white;
   user-select: none;
+  z-index: 99;
   display: none;
 }
 
@@ -249,6 +255,16 @@ div#toast.active {
   width: 30px;
   height: 30px;
   margin: 5px;
+}
+
+
+#popup_color_picker_border{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border-width: 5px;
+  background-color: #e6e6e6;
 }
 
 /* UPLOAD AREA */

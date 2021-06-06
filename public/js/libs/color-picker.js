@@ -2,7 +2,7 @@
  * ==============================================================
  *  COLOR PICKER 2.1.6
  * ==============================================================
- * Author: Taufik Nurrohman <https://github.com/taufik-nurrohman>
+ * Author: Taufik Nurrohman <https://github.com/taufik-nurrohman/color-picker>
  * License: MIT
  * --------------------------------------------------------------
  */
